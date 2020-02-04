@@ -12,11 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <router-link :to="{name: 'home'}">home</router-link>
-        <router-link :to="{name: 'test'}">test</router-link>
+        <router-link :to="{name: 'login'}">login</router-link>
         <router-view></router-view>
     </div>
 

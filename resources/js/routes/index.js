@@ -1,18 +1,18 @@
-import Home from '../components/Home.vue'
-import Test from '../components/Test.vue'
+import Login from '../pages/auth/Login.vue'
+import Home from "../pages/Home.vue";
 
 export default {
     mode: "history",
     routes: [
         {
-            path: '/',
-            component: Home,
-            name: 'home'
+            path: "/login",
+            component: Login,
+            name: "login"
         },
         {
-            path: '/test',
-            component: Test,
-            name: 'test'
+            path: "/home",
+            component: Home,
+            name: "home"
         }
     ]
-}
+};

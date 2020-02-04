@@ -1,7 +1,14 @@
 module.exports = {
-  theme: {
-    extend: {}
-  },
-  variants: {},
-  plugins: []
-}
+    theme: {
+        extend: {
+            colors: {
+                mainColor: "#89C9C9"
+            },
+            fontFamily: {
+                sans: ["Montserrat"]
+            }
+        }
+    },
+    variants: {},
+    plugins: []
+};
