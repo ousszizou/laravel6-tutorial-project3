@@ -10,6 +10,7 @@ This Tutorial is by **ALGORITHM**
 
 - SPA (Single Page Application) with vue-router
 - Use Laravel with vueJs & Tailwindcss
+- API subject
 - Use Vuex
 - Authentication (Basics & Socialite)
 - Email Verifications
