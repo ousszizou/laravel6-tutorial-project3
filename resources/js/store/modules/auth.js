@@ -5,21 +5,35 @@ import * as types from "../mutations_types";
 // state
 const state = {
     user: null,
-    token: Cookies.get("token")
+    token: Cookies.get("token"),
+    auth_err: null,
+    loading: false
 }
 
 // getters
 const getters = {
     user: state => state.user,
     token: state => state.token,
-    check: state => state.user !== null
+    check: state => state.user !== null,
+    authError: state => state.auth_err,
+    isLoading: state => state.loading
 }
 
 // mutations
 const mutations = {
-    [types.SAVE_TOKEN](state, { token, rembmer }) {
+    [types.LOGIN](state) {
+        state.loading = true;
+        state.auth_err = null;
+    },
+    [types.LOGIN_SUCCESS](state, { token, rembmer }) {
+        state.loading = false;
+        state.auth_err = null;
         state.token = token;
         Cookies.set("token", token, { expires: rembmer ? 365 : null });
+    },
+    [types.LOGIN_FAILED](state, { error }) {
+        state.loading = false;
+        state.auth_err = error
     },
     [types.FETCH_USER_SUCCESS](state, { user }) {
         state.user = user.data;
@@ -37,8 +51,8 @@ const mutations = {
 
 // actions
 const actions = {
-    saveToken({commit}, payload) {
-        commit(types.SAVE_TOKEN, payload);
+    login({commit}) {
+        commit(types.LOGIN);
     },
     async fetchUser({commit}) {
         try {

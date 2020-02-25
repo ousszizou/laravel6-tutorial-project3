@@ -52,7 +52,7 @@ class AuthController extends Controller
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
-        return response()->json(["error" => "login_error"], 401);
+        return response()->json(["error" => "Your Email/Password is wrong"], 401);
     }
 
     // refresh JWT token

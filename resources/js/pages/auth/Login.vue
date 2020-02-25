@@ -8,10 +8,18 @@
             <div class="mt-2">
                 <h3 class="text-3xl text-gray-700">welcome !</h3>
                 <p class="pb-8 text-gray-600">Sign in by entering your information.</p>
+                <div v-if="authError" class="text-white mb-4 bg-red-400 p-4 w-1/2 mx-auto">
+                    <p> {{authError}} </p>
+                </div>
                 <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-                    <input class="w-1/2 mx-auto border-b p-4 border-gray-400 outline-none block" type="email" placeholder="Email" name="email" v-model="form.email">
-                    <input class="w-1/2 mx-auto border-b border-gray-400 p-4 border-gray-400 outline-none block" type="password" placeholder="Password" name="password" v-model="form.password">
-                    <button class="mt-8 border-none rounded-full bg-mainColor px-16 py-2 text-white" type="submit">Sign In <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                    <input class="w-1/2 mx-auto border-b p-4 border-gray-400 outline-none block" type="email" placeholder="Email" name="email" v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }">
+                    <has-errortailwind :form="form" field="email"></has-errortailwind>
+                    <input class="w-1/2 mx-auto border-b border-gray-400 p-4 border-gray-400 outline-none block" type="password" placeholder="Password" name="password" v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }">
+                    <has-errortailwind :form="form" field="password"></has-errortailwind>
+                    <button class="mt-8 border-none rounded-full bg-mainColor px-16 py-2 text-white" type="submit">
+                        <clip-loader :loading="isLoading" color="#fff" size="30px"></clip-loader>
+                        <span v-if="!isLoading">sign in</span>
+                        <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                 </form>
                 <div>
                     <a href="/login/github" class="mt-8 border-none rounded-full bg-gray-700 px-6 py-2 text-white" type="submit">With Github <i class="fa fa-github" aria-hidden="true"></i></a>
@@ -25,7 +33,14 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import {Form} from 'vform'
+import {mapGetters} from 'vuex'
+import HasErrorTailwind from '../../components/HasErrorTailwind'
+import { ClipLoader } from 'vue-spinner/dist/vue-spinner.min.js'
+
+Vue.component(HasErrorTailwind.name, HasErrorTailwind)
+Vue.component('clip-loader', ClipLoader)
 
 export default {
     data() {
@@ -39,15 +54,34 @@ export default {
         }
     },
     methods: {
-        async login() {
-           const {data} = await this.form.post("/api/v1/auth/login")
-           this.$store.dispatch('auth/saveToken', {
-               token: data.access_token,
-               remember: this.remember
-           })
-           await this.$store.dispatch('auth/fetchUser')
-           this.$router.push({ name: 'home' })
+        login() {
+            this.$store.dispatch("auth/login")
+            this.form.post("/api/v1/auth/login").then(({data}) => {
+                this.$store.commit("auth/LOGIN_SUCCESS", {
+                    token: data.access_token,
+                    remember: this.remember     
+                })
+                this.$store.dispatch('auth/fetchUser')
+                this.$router.push({name: 'home'})
+            })
+            .catch((error) => {
+                this.$store.commit("auth/LOGIN_FAILED", error.response.data)
+            })
         }
+    },
+    computed: {
+        ...mapGetters({
+            authError: 'auth/authError',
+            isLoading: 'auth/isLoading'
+        })
     }
 }
 </script>
+
+<style scoped>
+
+    .is-invalid {
+        border-bottom: 1px solid #e64f5c
+    }
+
+</style>
