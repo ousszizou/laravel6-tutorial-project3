@@ -18,7 +18,8 @@
 </head>
 <body>
     <div id="app">
-        <router-link :to="{name: 'home'}">home</router-link>
+        <router-link :to="{name: 'welcome'}">Home</router-link>
+        <router-link :to="{name: 'home'}">Dashboard</router-link>
         <router-link :to="{name: 'login'}">login</router-link>
         <router-view></router-view>
     </div>
