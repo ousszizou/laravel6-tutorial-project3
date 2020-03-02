@@ -1,4 +1,5 @@
 import Login from "../pages/auth/Login.vue";
+import Register from "../pages/auth/Register.vue";
 import Home from "../pages/Home.vue";
 import Welcome from "../pages/Welcome.vue";
 
@@ -25,6 +26,14 @@ const router = new VueRouter({
             path: "/login",
             component: Login,
             name: "login",
+            meta: {
+                middleware: [guest]
+            }
+        },
+        {
+            path: "/register",
+            component: Register,
+            name: "register",
             meta: {
                 middleware: [guest]
             }

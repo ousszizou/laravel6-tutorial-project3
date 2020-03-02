@@ -21,6 +21,7 @@
         <router-link :to="{name: 'welcome'}">Home</router-link>
         <router-link :to="{name: 'home'}">Dashboard</router-link>
         <router-link :to="{name: 'login'}">login</router-link>
+        <router-link :to="{name: 'register'}">register</router-link>
         <router-view></router-view>
     </div>
 

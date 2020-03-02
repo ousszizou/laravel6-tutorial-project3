@@ -59,7 +59,7 @@ export default {
             this.form.post("/api/v1/auth/login").then(({data}) => {
                 this.$store.commit("auth/LOGIN_SUCCESS", {
                     token: data.access_token,
-                    remember: this.remember     
+                    remember: this.remember
                 })
                 this.$store.dispatch('auth/fetchUser')
                 this.$router.push({name: 'home'})
