@@ -26,8 +26,10 @@
     "dependencies": {
         "js-cookie": "^2.2.1",
         "vform": "^1.0.1",
+        "vue-js-modal": "^1.3.33",
         "vue-router": "^3.1.5",
         "vue-spinner": "^1.0.3",
+        "vue2-editor": "^2.10.2",
         "vuex": "^3.1.2"
     }
 }

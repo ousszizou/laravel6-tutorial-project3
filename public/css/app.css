@@ -1112,6 +1112,10 @@ video {
   background-color: #89C9C9;
 }
 
+.bg-btnBlueColor {
+  background-color: #0662FF;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1488,6 +1492,10 @@ video {
   background-color: #89C9C9;
 }
 
+.hover\:bg-btnBlueColor:hover {
+  background-color: #0662FF;
+}
+
 .focus\:bg-transparent:focus {
   background-color: transparent;
 }
@@ -1862,6 +1870,10 @@ video {
 
 .focus\:bg-mainColor:focus {
   background-color: #89C9C9;
+}
+
+.focus\:bg-btnBlueColor:focus {
+  background-color: #0662FF;
 }
 
 .bg-bottom {
@@ -2320,6 +2332,10 @@ video {
   border-color: #89C9C9;
 }
 
+.border-btnBlueColor {
+  border-color: #0662FF;
+}
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
@@ -2696,6 +2712,10 @@ video {
   border-color: #89C9C9;
 }
 
+.hover\:border-btnBlueColor:hover {
+  border-color: #0662FF;
+}
+
 .focus\:border-transparent:focus {
   border-color: transparent;
 }
@@ -3070,6 +3090,10 @@ video {
 
 .focus\:border-mainColor:focus {
   border-color: #89C9C9;
+}
+
+.focus\:border-btnBlueColor:focus {
+  border-color: #0662FF;
 }
 
 .rounded-none {
@@ -3715,7 +3739,7 @@ video {
 }
 
 .font-sans {
-  font-family: Montserrat;
+  font-family: Ubuntu, Montserrat;
 }
 
 .font-serif {
@@ -7822,6 +7846,26 @@ video {
   color: #89C9C9;
 }
 
+.placeholder-btnBlueColor::-webkit-input-placeholder {
+  color: #0662FF;
+}
+
+.placeholder-btnBlueColor::-moz-placeholder {
+  color: #0662FF;
+}
+
+.placeholder-btnBlueColor:-ms-input-placeholder {
+  color: #0662FF;
+}
+
+.placeholder-btnBlueColor::-ms-input-placeholder {
+  color: #0662FF;
+}
+
+.placeholder-btnBlueColor::placeholder {
+  color: #0662FF;
+}
+
 .focus\:placeholder-transparent:focus::-webkit-input-placeholder {
   color: transparent;
 }
@@ -9702,6 +9746,26 @@ video {
   color: #89C9C9;
 }
 
+.focus\:placeholder-btnBlueColor:focus::-webkit-input-placeholder {
+  color: #0662FF;
+}
+
+.focus\:placeholder-btnBlueColor:focus::-moz-placeholder {
+  color: #0662FF;
+}
+
+.focus\:placeholder-btnBlueColor:focus:-ms-input-placeholder {
+  color: #0662FF;
+}
+
+.focus\:placeholder-btnBlueColor:focus::-ms-input-placeholder {
+  color: #0662FF;
+}
+
+.focus\:placeholder-btnBlueColor:focus::placeholder {
+  color: #0662FF;
+}
+
 .pointer-events-none {
   pointer-events: none;
 }
@@ -10317,6 +10381,10 @@ video {
   color: #89C9C9;
 }
 
+.text-btnBlueColor {
+  color: #0662FF;
+}
+
 .hover\:text-transparent:hover {
   color: transparent;
 }
@@ -10693,6 +10761,10 @@ video {
   color: #89C9C9;
 }
 
+.hover\:text-btnBlueColor:hover {
+  color: #0662FF;
+}
+
 .focus\:text-transparent:focus {
   color: transparent;
 }
@@ -11067,6 +11139,10 @@ video {
 
 .focus\:text-mainColor:focus {
   color: #89C9C9;
+}
+
+.focus\:text-btnBlueColor:focus {
+  color: #0662FF;
 }
 
 .text-xs {
@@ -11978,6 +12054,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .sm\:bg-btnBlueColor {
+    background-color: #0662FF;
+  }
+
   .sm\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -12354,6 +12434,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .sm\:hover\:bg-btnBlueColor:hover {
+    background-color: #0662FF;
+  }
+
   .sm\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -12728,6 +12812,10 @@ video {
 
   .sm\:focus\:bg-mainColor:focus {
     background-color: #89C9C9;
+  }
+
+  .sm\:focus\:bg-btnBlueColor:focus {
+    background-color: #0662FF;
   }
 
   .sm\:bg-bottom {
@@ -13186,6 +13274,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .sm\:border-btnBlueColor {
+    border-color: #0662FF;
+  }
+
   .sm\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -13562,6 +13654,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .sm\:hover\:border-btnBlueColor:hover {
+    border-color: #0662FF;
+  }
+
   .sm\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -13936,6 +14032,10 @@ video {
 
   .sm\:focus\:border-mainColor:focus {
     border-color: #89C9C9;
+  }
+
+  .sm\:focus\:border-btnBlueColor:focus {
+    border-color: #0662FF;
   }
 
   .sm\:rounded-none {
@@ -14581,7 +14681,7 @@ video {
   }
 
   .sm\:font-sans {
-    font-family: Montserrat;
+    font-family: Ubuntu, Montserrat;
   }
 
   .sm\:font-serif {
@@ -18688,6 +18788,26 @@ video {
     color: #89C9C9;
   }
 
+  .sm\:placeholder-btnBlueColor::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:placeholder-btnBlueColor::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:placeholder-btnBlueColor:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:placeholder-btnBlueColor::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:placeholder-btnBlueColor::placeholder {
+    color: #0662FF;
+  }
+
   .sm\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
     color: transparent;
   }
@@ -20568,6 +20688,26 @@ video {
     color: #89C9C9;
   }
 
+  .sm\:focus\:placeholder-btnBlueColor:focus::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:focus\:placeholder-btnBlueColor:focus::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:focus\:placeholder-btnBlueColor:focus:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:focus\:placeholder-btnBlueColor:focus::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .sm\:focus\:placeholder-btnBlueColor:focus::placeholder {
+    color: #0662FF;
+  }
+
   .sm\:pointer-events-none {
     pointer-events: none;
   }
@@ -21183,6 +21323,10 @@ video {
     color: #89C9C9;
   }
 
+  .sm\:text-btnBlueColor {
+    color: #0662FF;
+  }
+
   .sm\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -21559,6 +21703,10 @@ video {
     color: #89C9C9;
   }
 
+  .sm\:hover\:text-btnBlueColor:hover {
+    color: #0662FF;
+  }
+
   .sm\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -21933,6 +22081,10 @@ video {
 
   .sm\:focus\:text-mainColor:focus {
     color: #89C9C9;
+  }
+
+  .sm\:focus\:text-btnBlueColor:focus {
+    color: #0662FF;
   }
 
   .sm\:text-xs {
@@ -22830,6 +22982,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .md\:bg-btnBlueColor {
+    background-color: #0662FF;
+  }
+
   .md\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -23206,6 +23362,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .md\:hover\:bg-btnBlueColor:hover {
+    background-color: #0662FF;
+  }
+
   .md\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -23580,6 +23740,10 @@ video {
 
   .md\:focus\:bg-mainColor:focus {
     background-color: #89C9C9;
+  }
+
+  .md\:focus\:bg-btnBlueColor:focus {
+    background-color: #0662FF;
   }
 
   .md\:bg-bottom {
@@ -24038,6 +24202,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .md\:border-btnBlueColor {
+    border-color: #0662FF;
+  }
+
   .md\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -24414,6 +24582,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .md\:hover\:border-btnBlueColor:hover {
+    border-color: #0662FF;
+  }
+
   .md\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -24788,6 +24960,10 @@ video {
 
   .md\:focus\:border-mainColor:focus {
     border-color: #89C9C9;
+  }
+
+  .md\:focus\:border-btnBlueColor:focus {
+    border-color: #0662FF;
   }
 
   .md\:rounded-none {
@@ -25433,7 +25609,7 @@ video {
   }
 
   .md\:font-sans {
-    font-family: Montserrat;
+    font-family: Ubuntu, Montserrat;
   }
 
   .md\:font-serif {
@@ -29540,6 +29716,26 @@ video {
     color: #89C9C9;
   }
 
+  .md\:placeholder-btnBlueColor::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:placeholder-btnBlueColor::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:placeholder-btnBlueColor:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:placeholder-btnBlueColor::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:placeholder-btnBlueColor::placeholder {
+    color: #0662FF;
+  }
+
   .md\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
     color: transparent;
   }
@@ -31420,6 +31616,26 @@ video {
     color: #89C9C9;
   }
 
+  .md\:focus\:placeholder-btnBlueColor:focus::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:focus\:placeholder-btnBlueColor:focus::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:focus\:placeholder-btnBlueColor:focus:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:focus\:placeholder-btnBlueColor:focus::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .md\:focus\:placeholder-btnBlueColor:focus::placeholder {
+    color: #0662FF;
+  }
+
   .md\:pointer-events-none {
     pointer-events: none;
   }
@@ -32035,6 +32251,10 @@ video {
     color: #89C9C9;
   }
 
+  .md\:text-btnBlueColor {
+    color: #0662FF;
+  }
+
   .md\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -32411,6 +32631,10 @@ video {
     color: #89C9C9;
   }
 
+  .md\:hover\:text-btnBlueColor:hover {
+    color: #0662FF;
+  }
+
   .md\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -32785,6 +33009,10 @@ video {
 
   .md\:focus\:text-mainColor:focus {
     color: #89C9C9;
+  }
+
+  .md\:focus\:text-btnBlueColor:focus {
+    color: #0662FF;
   }
 
   .md\:text-xs {
@@ -33682,6 +33910,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .lg\:bg-btnBlueColor {
+    background-color: #0662FF;
+  }
+
   .lg\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -34058,6 +34290,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .lg\:hover\:bg-btnBlueColor:hover {
+    background-color: #0662FF;
+  }
+
   .lg\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -34432,6 +34668,10 @@ video {
 
   .lg\:focus\:bg-mainColor:focus {
     background-color: #89C9C9;
+  }
+
+  .lg\:focus\:bg-btnBlueColor:focus {
+    background-color: #0662FF;
   }
 
   .lg\:bg-bottom {
@@ -34890,6 +35130,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .lg\:border-btnBlueColor {
+    border-color: #0662FF;
+  }
+
   .lg\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -35266,6 +35510,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .lg\:hover\:border-btnBlueColor:hover {
+    border-color: #0662FF;
+  }
+
   .lg\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -35640,6 +35888,10 @@ video {
 
   .lg\:focus\:border-mainColor:focus {
     border-color: #89C9C9;
+  }
+
+  .lg\:focus\:border-btnBlueColor:focus {
+    border-color: #0662FF;
   }
 
   .lg\:rounded-none {
@@ -36285,7 +36537,7 @@ video {
   }
 
   .lg\:font-sans {
-    font-family: Montserrat;
+    font-family: Ubuntu, Montserrat;
   }
 
   .lg\:font-serif {
@@ -40392,6 +40644,26 @@ video {
     color: #89C9C9;
   }
 
+  .lg\:placeholder-btnBlueColor::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:placeholder-btnBlueColor::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:placeholder-btnBlueColor:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:placeholder-btnBlueColor::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:placeholder-btnBlueColor::placeholder {
+    color: #0662FF;
+  }
+
   .lg\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
     color: transparent;
   }
@@ -42272,6 +42544,26 @@ video {
     color: #89C9C9;
   }
 
+  .lg\:focus\:placeholder-btnBlueColor:focus::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:focus\:placeholder-btnBlueColor:focus::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:focus\:placeholder-btnBlueColor:focus:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:focus\:placeholder-btnBlueColor:focus::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .lg\:focus\:placeholder-btnBlueColor:focus::placeholder {
+    color: #0662FF;
+  }
+
   .lg\:pointer-events-none {
     pointer-events: none;
   }
@@ -42887,6 +43179,10 @@ video {
     color: #89C9C9;
   }
 
+  .lg\:text-btnBlueColor {
+    color: #0662FF;
+  }
+
   .lg\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -43263,6 +43559,10 @@ video {
     color: #89C9C9;
   }
 
+  .lg\:hover\:text-btnBlueColor:hover {
+    color: #0662FF;
+  }
+
   .lg\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -43637,6 +43937,10 @@ video {
 
   .lg\:focus\:text-mainColor:focus {
     color: #89C9C9;
+  }
+
+  .lg\:focus\:text-btnBlueColor:focus {
+    color: #0662FF;
   }
 
   .lg\:text-xs {
@@ -44534,6 +44838,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .xl\:bg-btnBlueColor {
+    background-color: #0662FF;
+  }
+
   .xl\:hover\:bg-transparent:hover {
     background-color: transparent;
   }
@@ -44910,6 +45218,10 @@ video {
     background-color: #89C9C9;
   }
 
+  .xl\:hover\:bg-btnBlueColor:hover {
+    background-color: #0662FF;
+  }
+
   .xl\:focus\:bg-transparent:focus {
     background-color: transparent;
   }
@@ -45284,6 +45596,10 @@ video {
 
   .xl\:focus\:bg-mainColor:focus {
     background-color: #89C9C9;
+  }
+
+  .xl\:focus\:bg-btnBlueColor:focus {
+    background-color: #0662FF;
   }
 
   .xl\:bg-bottom {
@@ -45742,6 +46058,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .xl\:border-btnBlueColor {
+    border-color: #0662FF;
+  }
+
   .xl\:hover\:border-transparent:hover {
     border-color: transparent;
   }
@@ -46118,6 +46438,10 @@ video {
     border-color: #89C9C9;
   }
 
+  .xl\:hover\:border-btnBlueColor:hover {
+    border-color: #0662FF;
+  }
+
   .xl\:focus\:border-transparent:focus {
     border-color: transparent;
   }
@@ -46492,6 +46816,10 @@ video {
 
   .xl\:focus\:border-mainColor:focus {
     border-color: #89C9C9;
+  }
+
+  .xl\:focus\:border-btnBlueColor:focus {
+    border-color: #0662FF;
   }
 
   .xl\:rounded-none {
@@ -47137,7 +47465,7 @@ video {
   }
 
   .xl\:font-sans {
-    font-family: Montserrat;
+    font-family: Ubuntu, Montserrat;
   }
 
   .xl\:font-serif {
@@ -51244,6 +51572,26 @@ video {
     color: #89C9C9;
   }
 
+  .xl\:placeholder-btnBlueColor::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:placeholder-btnBlueColor::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:placeholder-btnBlueColor:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:placeholder-btnBlueColor::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:placeholder-btnBlueColor::placeholder {
+    color: #0662FF;
+  }
+
   .xl\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
     color: transparent;
   }
@@ -53124,6 +53472,26 @@ video {
     color: #89C9C9;
   }
 
+  .xl\:focus\:placeholder-btnBlueColor:focus::-webkit-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:focus\:placeholder-btnBlueColor:focus::-moz-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:focus\:placeholder-btnBlueColor:focus:-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:focus\:placeholder-btnBlueColor:focus::-ms-input-placeholder {
+    color: #0662FF;
+  }
+
+  .xl\:focus\:placeholder-btnBlueColor:focus::placeholder {
+    color: #0662FF;
+  }
+
   .xl\:pointer-events-none {
     pointer-events: none;
   }
@@ -53739,6 +54107,10 @@ video {
     color: #89C9C9;
   }
 
+  .xl\:text-btnBlueColor {
+    color: #0662FF;
+  }
+
   .xl\:hover\:text-transparent:hover {
     color: transparent;
   }
@@ -54115,6 +54487,10 @@ video {
     color: #89C9C9;
   }
 
+  .xl\:hover\:text-btnBlueColor:hover {
+    color: #0662FF;
+  }
+
   .xl\:focus\:text-transparent:focus {
     color: transparent;
   }
@@ -54489,6 +54865,10 @@ video {
 
   .xl\:focus\:text-mainColor:focus {
     color: #89C9C9;
+  }
+
+  .xl\:focus\:text-btnBlueColor:focus {
+    color: #0662FF;
   }
 
   .xl\:text-xs {
