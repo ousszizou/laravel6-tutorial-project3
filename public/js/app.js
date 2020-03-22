@@ -1989,6 +1989,59 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1999,7 +2052,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         content: "",
         channel_id: "",
         user_id: "1",
-        slug: "demo-slug"
+        slug: "demo-slug-3"
       }
     };
   },
@@ -2008,18 +2061,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.$store.dispatch("forum/fetchChannels");
-    this.$store.getters["forum/channels"];
+    this.$store.dispatch("forum/fetchDiscussions");
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    user: 'auth/user',
-    channels: "forum/channels"
+    user: "auth/user",
+    channels: "forum/channels",
+    discussions: "forum/discussions"
   })),
   methods: {
     ShowStoreDiscussionModal: function ShowStoreDiscussionModal() {
-      this.$modal.show('storeDiscussionModal');
+      this.$modal.show("storeDiscussionModal");
     },
     HideStoreDiscussionModal: function HideStoreDiscussionModal() {
-      this.$modal.hide('storeDiscussionModal');
+      this.$modal.hide("storeDiscussionModal");
     },
     storeDiscussion: function storeDiscussion() {
       var data = {
@@ -2030,6 +2084,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         slug: this.dataForm.slug
       };
       this.$store.dispatch("forum/storeDiscussion", data);
+      this.$store.dispatch("forum/fetchDiscussions");
     }
   }
 });
@@ -19056,7 +19111,7 @@ var render = function() {
                 "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase w-full text-sm",
               on: { click: _vm.ShowStoreDiscussionModal }
             },
-            [_vm._v("ask a question")]
+            [_vm._v("\n      ask a question\n    ")]
           ),
           _vm._v(" "),
           _c(
@@ -19176,7 +19231,7 @@ var render = function() {
                         "bg-gray-700 text-white py-2 px-4 rounded-full uppercase text-sm",
                       on: { click: _vm.HideStoreDiscussionModal }
                     },
-                    [_vm._v("cancel")]
+                    [_vm._v("\n          cancel\n        ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -19186,7 +19241,7 @@ var render = function() {
                         "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm",
                       attrs: { type: "submit" }
                     },
-                    [_vm._v("new discussion")]
+                    [_vm._v("\n          new discussion\n        ")]
                   )
                 ],
                 1
@@ -19218,13 +19273,96 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "w-4/5 bg-blue-300" }, [
-        _vm._v("\n        discussions\n    ")
+      _c("div", { staticClass: "w-4/5 bg-blue-300 p-4" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.discussions.data, function(discussion) {
+            return _c("li", { key: discussion.id }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _c(
+                  "div",
+                  { staticClass: "container mx-auto bg-white flex mb-1 p-3" },
+                  [
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "bg-white flex-grow" }, [
+                      _c("h3", { staticClass: "font-bold text-lg mt-2" }, [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(discussion.title) +
+                            "\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        { staticClass: "text-xs font-light text-gray-800" },
+                        [
+                          _vm._v(
+                            "\n                Posted By:\n                "
+                          ),
+                          _c("span", { staticClass: "underline font-normal" }, [
+                            _vm._v(_vm._s(discussion.user.name))
+                          ]),
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(discussion.published_at) +
+                              "\n              "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", {
+                        staticClass: "text-gray-600 text-sm",
+                        domProps: { innerHTML: _vm._s(discussion.content) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1, true)
+                  ]
+                )
+              ])
+            ])
+          }),
+          0
+        )
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white w-1/12 self-center" }, [
+      _c("img", {
+        staticClass: "rounded-full h-16",
+        attrs: {
+          src: "https://randomuser.me/api/portraits/men/17.jpg",
+          alt: "avatar"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "bg-white w-1/12 self-center text-center" },
+      [
+        _c("i", {
+          staticClass: "fa fa-comments-o",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v("0")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -37014,15 +37152,14 @@ function guest(_ref) {
 /*!*************************************!*\
   !*** ./resources/js/pages/Home.vue ***!
   \*************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_b3c5cf30___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=b3c5cf30& */ "./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/pages/Home.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -37052,7 +37189,7 @@ component.options.__file = "resources/js/pages/Home.vue"
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
   \**************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37639,27 +37776,31 @@ var mutations = {
   fetchChannelsSuccess: function fetchChannelsSuccess(state, _ref) {
     var channels = _ref.channels;
     state.channels = channels;
+  },
+  fetchDiscussionsSuccess: function fetchDiscussionsSuccess(state, _ref2) {
+    var discussions = _ref2.discussions;
+    state.discussions = discussions;
   }
 };
 var actions = {
   fetchChannels: function () {
     var _fetchChannels = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref2) {
-      var commit, _ref3, data;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref3) {
+      var commit, _ref4, data;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              commit = _ref2.commit;
+              commit = _ref3.commit;
               _context.prev = 1;
               _context.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/v1/channels");
 
             case 4:
-              _ref3 = _context.sent;
-              data = _ref3.data;
+              _ref4 = _context.sent;
+              data = _ref4.data;
               commit("fetchChannelsSuccess", {
                 channels: data
               });
@@ -37685,45 +37826,82 @@ var actions = {
 
     return fetchChannels;
   }(),
-  storeDiscussion: function () {
-    var _storeDiscussion = _asyncToGenerator(
+  fetchDiscussions: function () {
+    var _fetchDiscussions = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref4, data) {
-      var commit;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref5) {
+      var commit, _ref6, data;
+
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              commit = _ref4.commit;
+              commit = _ref5.commit;
               _context2.prev = 1;
               _context2.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/v1/discussions", {
-                title: data.title,
-                content: data.content,
-                channel_id: data.channel_id,
-                user_id: data.user_id,
-                slug: data.slug
-              });
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/v1/discussions");
 
             case 4:
-              console.log("well done");
-              _context2.next = 10;
+              _ref6 = _context2.sent;
+              data = _ref6.data;
+              commit("fetchDiscussionsSuccess", {
+                discussions: data
+              });
+              _context2.next = 12;
               break;
 
-            case 7:
-              _context2.prev = 7;
+            case 9:
+              _context2.prev = 9;
               _context2.t0 = _context2["catch"](1);
               console.log(_context2.t0);
 
-            case 10:
+            case 12:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 7]]);
+      }, _callee2, null, [[1, 9]]);
     }));
 
-    function storeDiscussion(_x2, _x3) {
+    function fetchDiscussions(_x2) {
+      return _fetchDiscussions.apply(this, arguments);
+    }
+
+    return fetchDiscussions;
+  }(),
+  storeDiscussion: function () {
+    var _storeDiscussion = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref7, data) {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              commit = _ref7.commit;
+              _context3.prev = 1;
+              _context3.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/v1/discussions", data);
+
+            case 4:
+              console.log("well done");
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](1);
+              console.log(_context3.t0);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[1, 7]]);
+    }));
+
+    function storeDiscussion(_x3, _x4) {
       return _storeDiscussion.apply(this, arguments);
     }
 

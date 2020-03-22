@@ -18,9 +18,12 @@ class DiscussionResource extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "content" => $this->content,
-            "user_id" => $this->user_id,
-            "channel_id" => $this->channel_id,
-            "slug" => $this->slug
+            "user" => $this->user,
+            "channel" => $this->channel,
+            "slug" => $this->slug,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at,
+            "published_at" => $this->created_at->diffForHumans()
         ];
     }
 }

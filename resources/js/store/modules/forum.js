@@ -11,10 +11,13 @@ const getters = {
 }
 
 const mutations = {
-  fetchChannelsSuccess(state, {channels}) {
-    state.channels = channels
+  fetchChannelsSuccess(state, { channels }) {
+    state.channels = channels;
+  },
+  fetchDiscussionsSuccess(state, { discussions }) {
+    state.discussions = discussions;
   }
-}
+};
 
 const actions = {
   async fetchChannels({commit}) {
@@ -25,15 +28,17 @@ const actions = {
       console.log(err)
     }
   },
+  async fetchDiscussions({commit}) {
+    try {
+      const { data } = await axios.get("/api/v1/discussions")
+      commit("fetchDiscussionsSuccess", { discussions: data });
+    } catch (err) {
+      console.log(err)
+    }
+  },
   async storeDiscussion({commit}, data) {
     try {
-      await axios.post("/api/v1/discussions", {
-        title: data.title,
-        content: data.content,
-        channel_id: data.channel_id,
-        user_id: data.user_id,
-        slug: data.slug
-      })
+      await axios.post("/api/v1/discussions", data)
       console.log("well done")
     } catch (err) {
       console.log(err)
