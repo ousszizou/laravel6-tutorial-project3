@@ -53,32 +53,7 @@
       </ul>
     </div>
     <div class="w-4/5 bg-blue-300 p-4">
-      <ul>
-        <li v-for="discussion in discussions.data" :key="discussion.id">
-          <a href="#">
-            <div class="container mx-auto bg-white flex mb-1 p-3">
-              <div class="bg-white w-1/12 self-center">
-                <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="avatar" class="rounded-full h-16">
-              </div>
-              <div class="bg-white flex-grow">
-                <h3 class="font-bold text-lg mt-2">
-                  {{ discussion.title }}
-                </h3>
-                <span class="text-xs font-light text-gray-800">
-                  Posted By:
-                  <span class="underline font-normal">{{ discussion.user.name }}</span>
-                  {{ discussion.published_at }}
-                </span>
-                <p class="text-gray-600 text-sm" v-html="discussion.content"></p>
-              </div>
-              <div class="bg-white w-1/12 self-center text-center">
-                <i class="fa fa-comments-o" aria-hidden="true"></i>
-                <span>0</span>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -104,13 +79,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("forum/fetchChannels");
-    this.$store.dispatch("forum/fetchDiscussions");
   },
   computed: {
     ...mapGetters({
       user: "auth/user",
-      channels: "forum/channels",
-      discussions: "forum/discussions"
+      channels: "forum/channels"
     })
   },
   methods: {
