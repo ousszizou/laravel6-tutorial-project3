@@ -2025,9 +2025,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       dataForm: {
         title: "",
         content: "",
-        channel_id: "",
-        user_id: "1",
-        slug: "demo-slug-3"
+        channel_id: ""
       }
     };
   },
@@ -2036,6 +2034,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.$store.dispatch("forum/fetchChannels");
+    this.$store.dispatch("auth/fetchUser");
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     user: "auth/user",
@@ -2053,8 +2052,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         title: this.dataForm.title,
         content: this.dataForm.content,
         channel_id: this.dataForm.channel_id,
-        user_id: this.dataForm.user_id,
-        slug: this.dataForm.slug
+        user_id: this.user.id
       };
       this.$store.dispatch("forum/storeDiscussion", data);
       this.$store.dispatch("forum/fetchDiscussions");
@@ -2122,6 +2120,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     discussions: "forum/discussions"
   }))
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.$store.dispatch("forum/fetchDiscussion", this.$route.params.discussion);
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])("forum", ["discussion"]))
 });
 
 /***/ }),
@@ -19458,13 +19510,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.$route.params.channel))]),
-    _vm._v(" "),
-    _c("h1", [_vm._v(_vm._s(_vm.$route.params.discussion))])
-  ])
+  return _vm.discussion
+    ? _c("div", [
+        _c("div", { staticClass: "head" }, [
+          _c("h1", { staticClass: "inline-block text-4xl" }, [
+            _vm._v(_vm._s(_vm.discussion.title))
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "float-right mt-2" }, [
+            _vm._v("\n      Posted In "),
+            _c(
+              "span",
+              {
+                staticClass:
+                  "rounded-full bg-red-500 text-white font-bold text-sm py-1 px-2"
+              },
+              [_vm._v(_vm._s(_vm.discussion.channel.title))]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "body mt-4" }, [
+          _c(
+            "div",
+            { staticClass: "container mx-auto bg-white flex mb-1 p-3" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "bg-white flex-grow" }, [
+                _c("h3", { staticClass: "font-bold text-lg mt-2" }, [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.discussion.user.name) +
+                      "\n            "
+                  ),
+                  _c("span", { staticClass: "text-gray-500 text-sm" }, [
+                    _vm._v(_vm._s(_vm.discussion.published_at))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", {
+                  staticClass: "text-gray-600 text-sm mt-6",
+                  domProps: { innerHTML: _vm._s(_vm.discussion.content) }
+                })
+              ])
+            ]
+          )
+        ])
+      ])
+    : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white w-1/12 self-center" }, [
+      _c("img", {
+        staticClass: "rounded-full h-16",
+        attrs: {
+          src: "https://randomuser.me/api/portraits/men/17.jpg",
+          alt: "avatar"
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37398,15 +37509,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleDiscussion_vue_vue_type_template_id_ab4abfce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleDiscussion.vue?vue&type=template&id=ab4abfce& */ "./resources/js/pages/SingleDiscussion.vue?vue&type=template&id=ab4abfce&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SingleDiscussion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleDiscussion.vue?vue&type=script&lang=js& */ "./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SingleDiscussion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _SingleDiscussion_vue_vue_type_template_id_ab4abfce___WEBPACK_IMPORTED_MODULE_0__["render"],
   _SingleDiscussion_vue_vue_type_template_id_ab4abfce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -37420,6 +37533,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/SingleDiscussion.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDiscussion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SingleDiscussion.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SingleDiscussion.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleDiscussion_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -37998,7 +38125,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var state = {
   channels: [],
-  discussions: []
+  discussions: [],
+  discussion: null
 };
 var getters = {
   channels: function channels(state) {
@@ -38006,6 +38134,9 @@ var getters = {
   },
   discussions: function discussions(state) {
     return state.discussions;
+  },
+  discussion: function discussion(state) {
+    return state.discussion;
   }
 };
 var mutations = {
@@ -38016,27 +38147,31 @@ var mutations = {
   fetchDiscussionsSuccess: function fetchDiscussionsSuccess(state, _ref2) {
     var discussions = _ref2.discussions;
     state.discussions = discussions;
+  },
+  fetchDiscussionSuccess: function fetchDiscussionSuccess(state, _ref3) {
+    var discussion = _ref3.discussion;
+    state.discussion = discussion.data;
   }
 };
 var actions = {
   fetchChannels: function () {
     var _fetchChannels = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref3) {
-      var commit, _ref4, data;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref4) {
+      var commit, _ref5, data;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              commit = _ref3.commit;
+              commit = _ref4.commit;
               _context.prev = 1;
               _context.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/v1/channels");
 
             case 4:
-              _ref4 = _context.sent;
-              data = _ref4.data;
+              _ref5 = _context.sent;
+              data = _ref5.data;
               commit("fetchChannelsSuccess", {
                 channels: data
               });
@@ -38065,21 +38200,21 @@ var actions = {
   fetchDiscussions: function () {
     var _fetchDiscussions = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref5) {
-      var commit, _ref6, data;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref6) {
+      var commit, _ref7, data;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              commit = _ref5.commit;
+              commit = _ref6.commit;
               _context2.prev = 1;
               _context2.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/v1/discussions");
 
             case 4:
-              _ref6 = _context2.sent;
-              data = _ref6.data;
+              _ref7 = _context2.sent;
+              data = _ref7.data;
               commit("fetchDiscussionsSuccess", {
                 discussions: data
               });
@@ -38105,39 +38240,82 @@ var actions = {
 
     return fetchDiscussions;
   }(),
-  storeDiscussion: function () {
-    var _storeDiscussion = _asyncToGenerator(
+  fetchDiscussion: function () {
+    var _fetchDiscussion = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref7, data) {
-      var commit;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref8, slug) {
+      var commit, _ref9, data;
+
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              commit = _ref7.commit;
+              commit = _ref8.commit;
               _context3.prev = 1;
               _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/v1/discussions", data);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/v1/discussions/".concat(slug));
 
             case 4:
-              console.log("well done");
-              _context3.next = 10;
+              _ref9 = _context3.sent;
+              data = _ref9.data;
+              commit("fetchDiscussionSuccess", {
+                discussion: data
+              });
+              _context3.next = 12;
               break;
 
-            case 7:
-              _context3.prev = 7;
+            case 9:
+              _context3.prev = 9;
               _context3.t0 = _context3["catch"](1);
               console.log(_context3.t0);
 
-            case 10:
+            case 12:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[1, 7]]);
+      }, _callee3, null, [[1, 9]]);
     }));
 
-    function storeDiscussion(_x3, _x4) {
+    function fetchDiscussion(_x3, _x4) {
+      return _fetchDiscussion.apply(this, arguments);
+    }
+
+    return fetchDiscussion;
+  }(),
+  storeDiscussion: function () {
+    var _storeDiscussion = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(_ref10, data) {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              commit = _ref10.commit;
+              _context4.prev = 1;
+              _context4.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/v1/discussions", data);
+
+            case 4:
+              console.log("well done");
+              _context4.next = 10;
+              break;
+
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](1);
+              console.log(_context4.t0);
+
+            case 10:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[1, 7]]);
+    }));
+
+    function storeDiscussion(_x5, _x6) {
       return _storeDiscussion.apply(this, arguments);
     }
 

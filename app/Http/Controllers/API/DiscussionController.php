@@ -61,9 +61,10 @@ class DiscussionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Discussion $discussion)
+    public function show($slug)
     {
-        return new DiscussionResource($discussion);
+      $discussion = Discussion::whereSlug($slug)->firstOrFail();
+      return new DiscussionResource($discussion);
     }
 
     /**

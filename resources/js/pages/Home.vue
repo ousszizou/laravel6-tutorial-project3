@@ -68,9 +68,7 @@ export default {
       dataForm: {
         title: "",
         content: "",
-        channel_id: "",
-        user_id: "1",
-        slug: "demo-slug-3"
+        channel_id: ""
       }
     };
   },
@@ -79,6 +77,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("forum/fetchChannels");
+    this.$store.dispatch("auth/fetchUser");
   },
   computed: {
     ...mapGetters({
@@ -98,8 +97,7 @@ export default {
         title: this.dataForm.title,
         content: this.dataForm.content,
         channel_id: this.dataForm.channel_id,
-        user_id: this.dataForm.user_id,
-        slug: this.dataForm.slug
+        user_id: this.user.id
       };
       this.$store.dispatch("forum/storeDiscussion", data);
       this.$store.dispatch("forum/fetchDiscussions");
