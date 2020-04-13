@@ -33,6 +33,7 @@
         <yimo-vue-editor v-model="reply"></yimo-vue-editor>
         <button
           class="bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm"
+          @click="storeReply"
         >
           Reply
         </button>
@@ -61,6 +62,16 @@ export default {
   },
   computed: {
     ...mapGetters("forum", ["discussion"])
+  },
+  methods: {
+    storeReply() {
+      this.$store.dispatch("forum/storeReply", {
+        "content": this.reply,
+        "discussion_id": this.discussion.id,
+        "user_id": this.$store.getters["auth/user"].id
+      })
+      this.reply = ""
+    }
   }
 };
 </script>

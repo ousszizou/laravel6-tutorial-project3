@@ -56,6 +56,14 @@ const actions = {
     } catch (err) {
       console.log(err)
     }
+  },
+  async storeReply({ commit }, data) {
+    try {
+      await axios.post("/api/v1/replies", data)
+      console.log("reply saved")
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 

@@ -2184,6 +2184,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2198,7 +2199,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.$store.dispatch("forum/fetchDiscussion", this.$route.params.discussion);
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])("forum", ["discussion"]))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])("forum", ["discussion"])),
+  methods: {
+    storeReply: function storeReply() {
+      this.$store.dispatch("forum/storeReply", {
+        "content": this.reply,
+        "discussion_id": this.discussion.id,
+        "user_id": this.$store.getters["auth/user"].id
+      });
+      this.reply = "";
+    }
+  }
 });
 
 /***/ }),
@@ -19599,7 +19610,8 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm"
+                    "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm",
+                  on: { click: _vm.storeReply }
                 },
                 [_vm._v("\n        Reply\n      ")]
               )
@@ -38410,6 +38422,44 @@ var actions = {
     }
 
     return storeDiscussion;
+  }(),
+  storeReply: function () {
+    var _storeReply = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(_ref11, data) {
+      var commit;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              commit = _ref11.commit;
+              _context5.prev = 1;
+              _context5.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/v1/replies", data);
+
+            case 4:
+              console.log("reply saved");
+              _context5.next = 10;
+              break;
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](1);
+              console.log(_context5.t0);
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[1, 7]]);
+    }));
+
+    function storeReply(_x7, _x8) {
+      return _storeReply.apply(this, arguments);
+    }
+
+    return storeReply;
   }()
 };
 /* harmony default export */ __webpack_exports__["default"] = ({

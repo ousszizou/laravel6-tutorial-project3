@@ -9,8 +9,8 @@ use App\Discussion;
 
 class Reply extends Model
 {
-  
-  protected $fillable = ["discussion_id","content"];
+
+  protected $fillable = ["user_id","discussion_id","content"];
 
   public function user() {
     return $this->belongsTo(User::class);

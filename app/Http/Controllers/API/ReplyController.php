@@ -6,6 +6,7 @@ use App\Http\Resources\ReplyResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Reply;
+use Validator;
 
 class ReplyController extends Controller
 {
@@ -27,7 +28,26 @@ class ReplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $v = Validator::make($request->all(), [
+          "content" => "required"
+      ]);
+
+      if ($v->fails()) {
+        return response()->json([
+          "error" => true,
+          "errors" => $v->errors()
+        ],422);
+      }
+
+      $reply = new Reply([
+        "content" => $request->content,
+        "user_id" => $request->user_id,
+        "discussion_id" => $request->discussion_id
+      ]);
+
+      $reply->save();
+
+      return new ReplyResource($reply);
     }
 
     /**
