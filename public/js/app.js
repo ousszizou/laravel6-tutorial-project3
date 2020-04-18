@@ -2185,6 +2185,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2203,9 +2225,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     storeReply: function storeReply() {
       this.$store.dispatch("forum/storeReply", {
-        "content": this.reply,
-        "discussion_id": this.discussion.id,
-        "user_id": this.$store.getters["auth/user"].id
+        content: this.reply,
+        discussion_id: this.discussion.id,
+        user_id: this.$store.getters["auth/user"].id
       });
       this.reply = "";
     }
@@ -19510,7 +19532,7 @@ var render = function() {
                         attrs: { "aria-hidden": "true" }
                       }),
                       _vm._v(" "),
-                      _c("span", [_vm._v("0")])
+                      _c("span", [_vm._v(_vm._s(discussion.replies_count))])
                     ]
                   )
                 ]
@@ -19566,63 +19588,119 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "body mt-4" }, [
-          _c(
-            "div",
-            { staticClass: "container mx-auto bg-white flex mb-1 p-3" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "bg-white flex-grow" }, [
-                _c("h3", { staticClass: "font-bold text-lg mt-2" }, [
-                  _vm._v(
-                    "\n          " +
-                      _vm._s(_vm.discussion.user.name) +
-                      "\n          "
-                  ),
-                  _c("span", { staticClass: "text-gray-500 text-sm" }, [
-                    _vm._v(_vm._s(_vm.discussion.published_at))
-                  ])
-                ]),
+        _c(
+          "div",
+          { staticClass: "body mt-4" },
+          [
+            _c(
+              "div",
+              { staticClass: "container mx-auto bg-white flex mb-1 p-3" },
+              [
+                _vm._m(0),
                 _vm._v(" "),
-                _c("p", {
-                  staticClass: "text-gray-600 text-sm mt-6",
-                  domProps: { innerHTML: _vm._s(_vm.discussion.content) }
-                })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            [
-              _c("yimo-vue-editor", {
-                model: {
-                  value: _vm.reply,
-                  callback: function($$v) {
-                    _vm.reply = $$v
-                  },
-                  expression: "reply"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
+                _c("div", { staticClass: "bg-white flex-grow" }, [
+                  _c("h3", { staticClass: "font-bold text-lg mt-2" }, [
+                    _vm._v(
+                      "\n          " +
+                        _vm._s(_vm.discussion.user.name) +
+                        "\n          "
+                    ),
+                    _c("span", { staticClass: "text-gray-500 text-sm" }, [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.discussion.published_at) +
+                          "\n          "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", {
+                    staticClass: "text-gray-600 text-sm mt-6",
+                    domProps: { innerHTML: _vm._s(_vm.discussion.content) }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.discussion.replies, function(reply) {
+              return _c(
+                "div",
                 {
-                  staticClass:
-                    "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm",
-                  on: { click: _vm.storeReply }
+                  key: reply.id,
+                  staticClass: "container mx-auto bg-white flex mb-1 p-3"
                 },
-                [_vm._v("\n        Reply\n      ")]
+                [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "bg-white flex-grow" }, [
+                    _c("h3", { staticClass: "font-bold text-lg mt-2" }, [
+                      _vm._v(
+                        "\n          " + _vm._s(reply.user) + "\n          "
+                      ),
+                      _c("span", { staticClass: "text-gray-500 text-sm" }, [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(reply.published_at) +
+                            "\n          "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", {
+                      staticClass: "text-gray-600 text-sm mt-6",
+                      domProps: { innerHTML: _vm._s(reply.content) }
+                    })
+                  ])
+                ]
               )
-            ],
-            1
-          )
-        ])
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("yimo-vue-editor", {
+                  model: {
+                    value: _vm.reply,
+                    callback: function($$v) {
+                      _vm.reply = $$v
+                    },
+                    expression: "reply"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-btnBlueColor text-white py-2 px-4 rounded-full uppercase text-sm",
+                    on: { click: _vm.storeReply }
+                  },
+                  [_vm._v("Reply")]
+                )
+              ],
+              1
+            )
+          ],
+          2
+        )
       ])
     : _vm._e()
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white w-1/12 self-center" }, [
+      _c("img", {
+        staticClass: "rounded-full h-16",
+        attrs: {
+          src: "https://randomuser.me/api/portraits/men/17.jpg",
+          alt: "avatar"
+        }
+      })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

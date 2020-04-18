@@ -24,7 +24,7 @@
           </div>
           <div class="bg-white w-1/12 self-center text-center">
             <i class="fa fa-comments-o" aria-hidden="true"></i>
-            <span>0</span>
+            <span>{{ discussion.replies_count }}</span>
           </div>
         </div>
       </router-link>
